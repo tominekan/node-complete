@@ -1,16 +1,17 @@
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
-import { Navbar } from "../site-components/navbar"
+import NavigationMenu from "../site-components/NavigationMenu"
 
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "E-Commerce" },
-    { name: "description", content: "Example E-Commerce site using Markov chain based searching" },
+    { name: "description", content: "Example E-Commerce site using what I learned" },
   ];
 }
 
 export default function Home() {
   return (
-    <Navbar />
+    <div>
+      <NavigationMenu />
+    </div>
   );
 }
