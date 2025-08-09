@@ -19,7 +19,7 @@ export default function NavigationMenu() {
                             <NavDropdown.Item href="#">Hardware</NavDropdown.Item>
                             <NavDropdown.Item href="#">Kitchen</NavDropdown.Item>
                             <NavDropdown.Item href="#">Cleaning</NavDropdown.Item>
-                            <NavDropdown.Item href="#">Furniture</NavDropdown.Item>
+                            <NavDropdown.Item href="#">Fashion</NavDropdown.Item>
                             <NavDropdown.Item href="#">More</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>

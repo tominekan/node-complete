@@ -2,7 +2,7 @@ import Form from "react-bootstrap/Form";
 
 type SearchBarProps = {
     value: string;
-}
+};
 
 export default function SearchBar(props: SearchBarProps) {
     return (
