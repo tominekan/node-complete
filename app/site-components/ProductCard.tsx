@@ -32,4 +32,4 @@ export default function ProductCard(props: Product) {
             </Card.Body>
         </Card>
     )
-}
+} 

@@ -20,12 +20,8 @@ export default function ProductGrid(props: ProductGridProps) {
     let productPagination = [];
 
     const [active, setActive] = useState(1)
-    // useEffect(() => {
-    //     alert(`Index Changed: ${active}`)
-    // }), [active]
     
     
-
     // By default we cap the max items per row to 4, unless 
     let maxItemsPerRow = (props.itemsPerRow === undefined) ? 4 : props.itemsPerRow;
 
@@ -38,7 +34,7 @@ export default function ProductGrid(props: ProductGridProps) {
         )
 
         // Make sure that the index we're going to build the grid to exists
-        productGrid.push([])
+        productGrid.push([]);
 
 
         // Keep track of how many elements per row
@@ -53,12 +49,12 @@ export default function ProductGrid(props: ProductGridProps) {
                     <Row key={Math.random()} className="d-flex justify-evenly">
                         {row}
                     </Row>
-                )
+                );
                 // Adds a break between every product listings 
                 productGrid[currIndex - 1].push(
                     <br />
-                )
-                row = []
+                );
+                row = [];
             }
 
             // Add product to the row
@@ -68,7 +64,7 @@ export default function ProductGrid(props: ProductGridProps) {
                 price={props.store[productIndex].price}
                 description={props.store[productIndex].description}
                 />
-            )
+            );
         }
 
         // Increment paginationIndex

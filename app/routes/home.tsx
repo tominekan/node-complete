@@ -2,7 +2,9 @@ import NavigationMenu from "~/site-components/NavigationMenu";
 import ProductGrid from "~/site-components/ProductGrid";
 import Container from "react-bootstrap/Container";
 import storeJson from "~/site-components/store.json"
+import { useState, useEffect } from "react";
 import type { Product, Store } from "~/site-components/useful_types";
+
 
 let store: Store = [];
 
@@ -12,15 +14,22 @@ for (let i = 0; i < storeJson.names.length; i++) {
         name: storeJson.names[i],
         description: storeJson.descriptions[i],
         price: storeJson.prices[i]
-    }
+    };
 
-    store.push(product)
+    store.push(product);
 }
 
 export default function Home() {
+    const [query, setQuery] = useState("");
+    const [placeholder, setPlaceholder] = useState("Search E-Commerce");
+
+    useEffect(() => {
+        if (query.length == 0) setPlaceholder("Search E-Commerce")
+    });
+
     return (
         <Container fluid={true}>
-            <NavigationMenu />
+            <NavigationMenu query={query} prediction={placeholder}/>
             <ProductGrid store={store} itemsDisplayed={15}/>
         </Container>
     )

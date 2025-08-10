@@ -4,7 +4,12 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import SearchBar from "./SearchBar";
 
-export default function NavigationMenu() {
+type NavigationMenuProps = {
+    query: string,
+    prediction: string,
+};
+
+export default function NavigationMenu(props: NavigationMenuProps) {
     return (
         <Navbar expand="lg" className="bg-white">
             <Container>
@@ -25,7 +30,7 @@ export default function NavigationMenu() {
                     </Nav>
 
                     {/* Where the actual magic happens */}
-                    <SearchBar value=""/>
+                    <SearchBar value={props.query} placeholder={props.prediction}/>
 
                     {/* More fake shii */}
                     <Nav>
