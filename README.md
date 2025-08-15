@@ -1,87 +1,17 @@
-# Welcome to React Router!
+# PROOF OF CONCEPT
 
-A modern, production-ready template for building full-stack React applications using React Router.
+This is bascially the interface I built to show how `pycomplete` could possibly be used. It's a fake E-Commerce site with fake listings lol.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## What did I do?
+Basically, we spin up a quick API (using FastAPI) to provide completions using `pycomplete` the library that I built to learn Markov chains. The completions were trained on entry
 
-## Features
+Then, we build a basic react frontend of what a possible E-Commerce search page could look like, and query the API built to get completions. We also want to show search results
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
 
-## Getting Started
-
-### Installation
-
-Install the dependencies:
-
-```bash
-npm install
-```
-
-### Development
-
-Start the development server with HMR:
-
-```bash
-npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+## TODOS:
+- [x] Currently for the autocomplete, we split the array by space, and join it back together after removing the last element, what if the list is empty though after removing the last element, now we have an undefined luh situation. Fix this
+- [x] Implement photos for each product to be more consistent.
+    - [x] Might reimplement the python code to generate types, but instead have it also pick a random number between 1 and 49 for the image, along with other data.
+    This means we'll have to change the code to get image in `ProductCard.tsx`.
+- [ ] Implement reverse indexing system, to get actual results. This means that we descriptions and names as keys and product indices as values.
+- [ ] Implement live display of search results in `ProductGrid`. We just want to display products with names or descriptions containing our query.

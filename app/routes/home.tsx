@@ -13,7 +13,8 @@ for (let i = 0; i < storeJson.names.length; i++) {
     let product: Product = {
         name: storeJson.names[i],
         description: storeJson.descriptions[i],
-        price: storeJson.prices[i]
+        price: storeJson.prices[i],
+        image: storeJson.images[i]
     };
 
     store.push(product);
@@ -24,12 +25,23 @@ export default function Home() {
     const [placeholder, setPlaceholder] = useState("Search E-Commerce");
 
     useEffect(() => {
-        if (query.length == 0) setPlaceholder("Search E-Commerce")
-    });
+        function doCompletions() {
+            let words: Array<string> | undefined = query.split(" ")
+            let last_word: string | undefined = words.pop()
+            fetch(`/complete/${last_word}`).then(
+                response => response.json()
+            ).then(
+                // Basically we combine the query again + predictions 
+                data => setPlaceholder(words.join(" ") + " " + ((data.message != undefined) ? data.message : ""))
+            )
+        }
+
+        if (query.length == 0) setPlaceholder("Search E-Commerce"); else doCompletions();
+    }, [query]);
 
     return (
         <Container fluid={true}>
-            <NavigationMenu query={query} prediction={placeholder}/>
+            <NavigationMenu query={query} prediction={placeholder} onChange={event => setQuery(event.target.value)}/>
             <ProductGrid store={store} itemsDisplayed={15}/>
         </Container>
     )

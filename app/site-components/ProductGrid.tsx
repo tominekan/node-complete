@@ -63,6 +63,7 @@ export default function ProductGrid(props: ProductGridProps) {
                 name={props.store[productIndex].name}
                 price={props.store[productIndex].price}
                 description={props.store[productIndex].description}
+                image={props.store[productIndex].image}
                 />
             );
         }

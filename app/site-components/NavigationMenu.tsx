@@ -3,10 +3,12 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import SearchBar from "./SearchBar";
+import type { ChangeEventHandler } from "react";
 
 type NavigationMenuProps = {
     query: string,
     prediction: string,
+    onChange: ChangeEventHandler
 };
 
 export default function NavigationMenu(props: NavigationMenuProps) {
@@ -30,7 +32,7 @@ export default function NavigationMenu(props: NavigationMenuProps) {
                     </Nav>
 
                     {/* Where the actual magic happens */}
-                    <SearchBar value={props.query} placeholder={props.prediction}/>
+                    <SearchBar value={props.query} placeholder={props.prediction} onChange={props.onChange}/>
 
                     {/* More fake shii */}
                     <Nav>

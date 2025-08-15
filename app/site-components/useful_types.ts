@@ -5,7 +5,8 @@
 export type Product = {
     name: string,
     price: number,
-    description: string
+    description: string,
+    image: number
 };
 
 export type Store = Array<Product>;

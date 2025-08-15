@@ -1,9 +1,11 @@
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
+import type { ChangeEventHandler } from "react";
 
 type SearchBarProps = {
     value: string,
-    placeholder: string
+    placeholder: string,
+    onChange: ChangeEventHandler,
 };
 
 export default function SearchBar(props: SearchBarProps) {
@@ -13,6 +15,7 @@ export default function SearchBar(props: SearchBarProps) {
             type="text"
             value={props.value}
             aria-label="Search Bar"
+            onChange={props.onChange}
             />
 
             <span style={{
