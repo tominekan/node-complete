@@ -15,7 +15,7 @@ export default function NavigationMenu(props: NavigationMenuProps) {
     return (
         <Navbar expand="lg" className="bg-white">
             <Container>
-                <Navbar.Brand href="#">E-Commerce</Navbar.Brand>
+                <Navbar.Brand href="#">LeCommerce</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     {/* Fake links section  */}

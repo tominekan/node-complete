@@ -15,9 +15,16 @@ function getImage(imgNum: number) {
 
 export default function ProductCard(props: Product) {
     return (
-        <Card style={{ width: "19rem"}} className="me-1 p-0">
-            {/* LOL THIS IS JUST A RANDOM IMAGE */}
-            <Card.Img variant="top" src={getImage(props.image)} style={{ height: "12rem"}}/>
+        <Card style={{
+            width: "19rem",
+            borderRadius: "12px",
+            }} className="me-1 p-0">
+
+            <Card.Img variant="top" src={getImage(props.image)} style={{
+                height: "12rem", 
+                width: "19rem", 
+                borderRadius: "12px 12px 0px 0px"
+                }}/>
 
             <Card.Body>
                 <Container className="d-flex justify-between p-0">
@@ -26,7 +33,7 @@ export default function ProductCard(props: Product) {
                 </Container>
 
                 <Card.Text>{props.description}</Card.Text>
-                <Button variant="primary">Add to Cart</Button>
+                <Button variant="primary" style={{borderRadius: "20px"}}>Add to Cart</Button>
             </Card.Body>
         </Card>
     )

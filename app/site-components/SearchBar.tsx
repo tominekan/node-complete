@@ -1,6 +1,6 @@
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
-import type { ChangeEventHandler } from "react";
+import { useState, type ChangeEventHandler } from "react";
 
 type SearchBarProps = {
     value: string,
@@ -9,13 +9,16 @@ type SearchBarProps = {
 };
 
 export default function SearchBar(props: SearchBarProps) {
+    
+    
     return (
-        <Container className="position-relative mx-3">
+        <Container className="position-relative mx-2">
             <Form.Control 
             type="text"
             value={props.value}
             aria-label="Search Bar"
             onChange={props.onChange}
+            style={{borderRadius: "12px"}}
             />
 
             <span style={{

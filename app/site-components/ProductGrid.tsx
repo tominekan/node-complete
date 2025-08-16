@@ -68,6 +68,18 @@ export default function ProductGrid(props: ProductGridProps) {
             );
         }
 
+        // Finally, add the last row in
+        productGrid[currIndex - 1].push(
+            <Row key={Math.random()} className="d-flex justify-evenly">
+                {row}
+            </Row>
+        );
+
+        // Adds a break between the rows 
+        productGrid[currIndex - 1].push(
+            <br />
+        );
+
         // Increment paginationIndex
         paginationIndex++;
     }

@@ -15,10 +15,10 @@ with open(PATH_TO_STORE, "r") as f:
 
 comp = PyComplete("")
 for desc in descriptions:
-    comp.add_line(desc)
+    comp.add_line(desc.lower())
 
 for name in product_names:
-    comp.add_line(name)
+    comp.add_line(name.lower())
 
 app = FastAPI()
 
@@ -28,8 +28,6 @@ def read_root():
 
 @app.get("/complete/{query}")
 def query_store(query: str):
-    result = " ".join(comp.predict(query))
-    print("====================== result ===============")
-    print(result)
+    result = " ".join(comp.predict(query.lower()))
     return {"message": result}
     
